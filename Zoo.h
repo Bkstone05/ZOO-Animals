@@ -4,7 +4,7 @@
  * Author:
  */
 
-#include <string>
+#include <iomanip>
 #include <iostream>
 #include <string>
 using namespace std; 
@@ -49,6 +49,10 @@ class Animal
      string getFood() const;
      int getAge() const;
      float getWeight() const; 
+
+     //other functions used 
+     void printAnimal();
+
 
      ~Animal()
      {
