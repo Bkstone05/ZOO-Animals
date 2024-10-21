@@ -43,10 +43,12 @@ float Animal::getWeight() const
 }
 
 //all other functions used
-void printAnimal(string type)
+void Animal::printAnimal() const
 {
-    cout << "----------- " << type << " ----------" << endl;
-    cout << setw(15) << left << "Animal Name: " << right ;
-    
+   
+    cout << setw(15) << left << "\nAnimal Name: " << right <<  getName();
+    cout << setw(15) << left << "\nAnimal Food: " << right <<  getFood();    
+    cout << setw(15) << left << "\nAnimal Age: " << right <<  getAge();    
+    cout << setw(15) << left << "\nAnimal Name: " << right <<  getWeight();    
 }
 

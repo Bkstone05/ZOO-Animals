@@ -51,7 +51,7 @@ class Animal
      float getWeight() const; 
 
      //other functions used 
-     void printAnimal();
+     void printAnimal()  const;
 
 
      ~Animal()
