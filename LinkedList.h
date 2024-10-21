@@ -42,9 +42,14 @@ class LinkedList
         this->ListNode.weight = w; 
     }
 
+    ~LinkedList()
+    {
+        
+    }
     
-    
-    
+    void deleteNode(int position);
+    void displayList() const;
+    void
 
 };
 #endif

@@ -9,7 +9,7 @@ Driver:
 
 A class for:
 1) Zoo animals
-    -contains animal name, age, height and food
+    -contains animal name, age, weight and food
 
 2) Linked list 
     -private data:
