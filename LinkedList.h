@@ -19,14 +19,32 @@ class LinkedList
     };
      
     ListNode *head;
-    ListNOde *tail; 
+    ListNode *tail; 
 
     public: 
     LinkedList()
     {
         head = NULL;
         tail = NULL;
+        ListNode.name = " ";
+        ListNode.food = " ";
+        ListNode.age = 0;
+        ListNode.weight = 0.0; 
     }
+
+    LinkedList(string n, string f, int a, float w, ListNode h, ListNode, t)
+    {
+        this->head = h;
+        this->tail = t;
+        this->ListNode.name = n;
+        this->ListNode.food = f;
+        this->ListNode.age = a;
+        this->ListNode.weight = w; 
+    }
+
     
-}
+    
+    
+
+};
 #endif
