@@ -4,13 +4,15 @@
  * Author:
  */
 
-#include <iomanip>
-#include <iostream>
-#include <string>
-using namespace std; 
 
 #ifndef Zoo_H
 #define Zoo_H
+
+#include <iomanip>
+#include <iostream>
+#include <string>
+#include <fstream> 
+using namespace std; 
 
 class Animal
 {

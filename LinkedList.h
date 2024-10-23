@@ -48,8 +48,7 @@ class LinkedList
     }
     
     void deleteNode(int position);
-    void displayList() const;
-    void
+    void displayList() const; 
 
 };
 #endif
