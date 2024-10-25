@@ -4,17 +4,6 @@
 
 */
 
-
-/*
-    menu 
-    1. sort a-z
-    2. sort z-a
-    3. add animal 
-    4. delete animal 
-    5. end program (aka shrek throws an asteroid and kills all of them)
-
-*/
-
 #include "Zoo.h"
 
 

@@ -6,7 +6,7 @@
 
 void getInitialAnimals(/*Need something here Probably pass by reference*/)
 {
-
+    
 }
 
 void chosePrint()
