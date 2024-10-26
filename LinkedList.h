@@ -142,18 +142,46 @@ class LinkedList
     template <class T>
     void end() const
     {
-
+        return end -> next;
     }
 
     /*************************************************************************
      * Name: sortAZ
      * Parameters: UNSUREEEEE
-     * Purpose: Sorts the Linked List from A-Z (forwards) using 
+     * Purpose: Sorts the Linked List from A-Z (forwards) using bubble sort
      ************************************************************************/
     template <class T>
-    void sortAZ()
-    {
 
+    void bubbleSort(int *arr, int size)
+    {
+        int tempForSwap;
+        cout << "\nSorting the array with the Bubble Sort algorithm.\n\n";
+        //maxElement will hold the subscript of the last element 
+        //that is to be compared to its immediate neighbor
+        for(int maxElement=(size-1); maxElement > 0; maxElement--)
+        {
+            for(int i=0; i<maxElement; i++) //using i for "index"
+            {
+                //swap the two adjacent elements if the one on the left is greater than the one on the right
+                if(arr[i] > arr[i+1]) 
+                {
+                    tempForSwap = arr[i];
+                    arr[i] = arr[i+1];
+                    arr[i+1] = tempForSwap;
+                }
+            }
+        }
+    }
+
+    void sortAZ(int *arr, int size)
+    {
+        cout << "\n ----------------------- Sort array from A-Z";
+
+        for(int i = 0; i < size; i++)
+        {
+            cout << arr[i] << " ";
+        }
+        cout << "-----------------------\n"
     }
 
     /************************************************************************
