@@ -152,7 +152,7 @@ class LinkedList
      ************************************************************************/
     template <class T>
 
-    void bubbleSort(int *arr, int size)
+    void sortAZ(int *arr, int size)
     {
         int tempForSwap;
         cout << "\nSorting the array with the Bubble Sort algorithm.\n\n";
@@ -171,10 +171,8 @@ class LinkedList
                 }
             }
         }
-    }
 
-    void sortAZ(int *arr, int size)
-    {
+        //displays the sorted array from A-Z
         cout << "\n ----------------------- Sort array from A-Z";
 
         for(int i = 0; i < size; i++)
