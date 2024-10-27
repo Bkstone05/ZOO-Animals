@@ -31,7 +31,7 @@ class Animal
         this->age = 0;
         this->weight = 0;
     }
-
+   //overloaded constructors
     Animal(string name, string food, int age, float weight)
      {
         this->name = name;
@@ -55,7 +55,7 @@ class Animal
      //other functions used 
      void printAnimal()  const;
 
-
+   //deconstructor *ded*
      ~Animal()
      {
         cout << "This animal has passed away";
