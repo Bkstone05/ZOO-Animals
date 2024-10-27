@@ -50,12 +50,16 @@ int main()
             break;
         
         case 2:
+            cout << "How would you like to sort the animals?\n";
+            cout << "If you would like it to be sorted A-Z, select 1. If you would like it sorted Z-A, select 2.";
+
             break;
 
         case 3:
             break;
 
-        case 4:    
+        case 4:   
+            //add deconstructor
             break;     
         }
 
