@@ -1,12 +1,11 @@
-
-
-
 #ifndef LinkedList_H
 #define LinkedList_H
 
 #include "Zoo.h"
 #include <iostream>
 using namespace std; 
+
+void deleteNode();
 
     template <class T>
     struct ListNode
@@ -79,7 +78,10 @@ class LinkedList
      * Purpose: Removes/deletes a specified index in list 
      *************************************************************/
     template <class T>
-    void deleteNode(int position);
+    void deleteNode(int position)
+    {
+
+    }
 
     /**************************************************************
      * Name: displayList
@@ -87,7 +89,10 @@ class LinkedList
      * Purpose: Will display the linked list to screen 
      *************************************************************/
     template <class T>
-    void displayList() const; 
+    void displayList() const
+    {
+        
+    }
 
     /**************************************************************
      * Name: isEmpty
