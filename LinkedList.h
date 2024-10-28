@@ -14,7 +14,7 @@ void deleteNode();
         ListNode* next; //pointer to next node
 
         //constructor
-        ListNode(const T& e= T(), ListNide *n = NULL)
+        ListNode(const T& e= T(), ListNode *n = NULL)
         {
             data(e);
             next(n);
@@ -34,18 +34,18 @@ class LinkedList
      * Constructor
      ********************************/
     template <class T>
-    LinkedList() 
+    LinkedList<T>::LinkedList() 
     {
-        ListNode<T>::ListNode() ;
-        head(new ListNode<T>(T()));
-        tail(new ListNode<T>(T())); 
+        ListNode<T>::ListNode() :
+        head(new ListNode<T>(T())) {};
+        tail(new ListNode<T>(T())) {}; 
     }
 
     /*********************************
      * Destructor
      ********************************/
     template <class T>
-    ~LinkedList()
+    LinkedList<T>::~LinkedList()
     {
         while(!isEmpty())
         {
@@ -64,12 +64,13 @@ class LinkedList
     /**************************************************************
      * Name: insertNode
      * Parameters: none
-     * Purpose: Insert a Node at given position
+     * Purpose: Inserts a new npde 
      *************************************************************/
     template <class T>
-    void insertNode()
+    void LinkedList<T>::insertNode(T& data, ListNode<T>* p)
     {
-
+        ListNode<T>* newNode = new ListNode<T>(data, p->next);
+        p->next = newNode; 
     }
     
     /**************************************************************
@@ -78,9 +79,16 @@ class LinkedList
      * Purpose: Removes/deletes a specified index in list 
      *************************************************************/
     template <class T>
-    void deleteNode(int position)
+    void LinkedList<T>::deleteNode(T& data)
     {
+        ListNode<T>* p = findPrevious(data);
 
+        if(p)
+        {
+            ListNode<T>* temp = p->next;
+            p->next = temp->next;
+            delete temp; 
+        }
     }
 
     /**************************************************************
@@ -89,9 +97,14 @@ class LinkedList
      * Purpose: Will display the linked list to screen 
      *************************************************************/
     template <class T>
-    void displayList() const
+    void LinkedList<T>::displayList() const
     {
-        
+        const ListNode<T>* p = first();
+        while(p)
+        {
+            cout << p->element << "\n";
+            p = p->next;  
+        }
     }
 
     /**************************************************************
@@ -122,7 +135,7 @@ class LinkedList
      * Purpose: Finds the node before
      *************************************************************/
     template <class T>
-    ListNode<T>* find()
+    ListNode<T>* findPrevious()
     {
 
     }
@@ -195,7 +208,15 @@ class LinkedList
     template <class T>
     void sortZA()
     {
+        
+        //displays the sorted array from A-Z
+        cout << "\n ----------------------- Sort array from Z-A";
 
+        for(int i = 0; i < size; i++)
+        {
+            cout << arr[i] << " ";
+        }
+        cout << "-----------------------\n"
     }
 };
 #endif

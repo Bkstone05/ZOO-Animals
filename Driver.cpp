@@ -5,13 +5,16 @@
 */
 
 #include "Zoo.h"
+#include "LinkedList.h"
 
+void getInitialAnimals(LinkedList<ListNode<Animal>>);
 
 int main()
 {
     string temp, name; 
     int choice;
     ifstream infile; 
+    LinkedList<ListNode<Animal>> zoo; 
 
 
     //intro and start up info
@@ -20,7 +23,8 @@ int main()
     cout << "\nThank you " << name;
 
     cout << "\nPortal is loading.......";
-    cout << "\n\nWelcome " << name << " to the\n";
+    getInitialAnimals(zoo);    
+    cout << "\n\nWelcome " << name << " to \n";
     cout << "____  _  _  ____    ____  _  _   __   _  _  ____ " << endl;
     cout << "(_  _)/ )( \\(  __) / ___)/ )( \\ / _\\ ( \\/ )(  _ \\" << endl;
     cout << ")(  ) __ ( ) _)   \\___ \\\\ /\\ //    \\/ \\/ \\ ) __/" << endl;
@@ -59,7 +63,7 @@ int main()
             break;
 
         case 4:   
-            //add deconstructor
+            //call deconstructors
             break;     
         }
 
