@@ -31,9 +31,10 @@ int main()
     cout << ")(  ) __ ( ) _)   \\___ \\\\ /\\ //    \\/ \\/ \\ ) __/" << endl;
     cout << "(__) \\_)(_/(____)  (____/(_/\\_)\\_/\\_/\\_)(_/(__)  " << endl;
     cout << "\n\nCurrent Animals in the zoo!";
+    
     //call display list function here and pre sort (a-z)
 
-
+    
    //menu made through using a switch case
     do{
 
@@ -47,6 +48,13 @@ int main()
 
         getline(test, temp, '%');        
         choice = stoi(temp);  
+
+        if(choice > 5 || choice < 1)
+        {
+            cout << "Please enter in a valid choice!!" << endl;
+            getline(test, temp, '%');        
+            choice = stoi(temp);
+        }
 
         switch (choice)
         {
@@ -68,12 +76,13 @@ int main()
                     aOrZ = stoi(temp);
                 }
                 if(aOrZ == 1)
-                    zoo.sortAZ(zoo);
+                    //zoo.sortAZ(zoo);
                 else
-                    zoo.sortZA(zoo);
+                    //zoo.sortZA(zoo);
                 break;
 
             case 3:
+                //call add animal function
                 break;
 
             case 4:   

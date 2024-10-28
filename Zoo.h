@@ -2,7 +2,7 @@
  * Name: Zoo.h 
  * Purpose: 
  * Author:
- */
+ ******************/
 
 
 #ifndef Zoo_H
@@ -53,12 +53,13 @@ class Animal
      float getWeight() const; 
 
      //other functions used 
-     void printAnimal()  const;
+     void printAnimal() const;
 
    //deconstructor *ded*
      ~Animal()
      {
-        cout << "This animal has passed away";
+         delete;
+         cout << "This animal has passed away" << endl;
      }
 };
 

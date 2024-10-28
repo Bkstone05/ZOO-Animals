@@ -33,6 +33,7 @@ void getInitialAnimals(LinkedList<ListNode<Animal>> zoo)
 
             zoo.insertNode(); //IDK WHY NO WORK PLEASE HELP 
     }
+    
     }
 
     test.close(); 
@@ -41,12 +42,21 @@ void getInitialAnimals(LinkedList<ListNode<Animal>> zoo)
 
 void printAnimal(string displayA, LinkedList<ListNode<Animal>> zoo)
 {
-    if(zoo.isEmpty()) //checks if list is empty
+    string temp;
+    ifstream test;
+    int index; 
+
+        if(zoo.isEmpty()) //checks if list is empty
+            cout << "List is empty!!";
+
+    test.open("Test.txt");
+
+    if(test.is_open())
     {
+        
         cout << "List is empty!!";
+        cout << "Please enter in the index of animal you are wanting to see: ";
+        getline(test, temp, '%');   
+        index = stoi(temp);    
     }
-    else 
-    {
-       
-    }
-}
+
