@@ -12,8 +12,8 @@ void getInitialAnimals(LinkedList<ListNode<Animal>>);
 int main()
 {
     string temp, name; 
-    int choice;
-    ifstream infile; 
+    int choice, aOrZ;
+    ifstream test; 
     LinkedList<ListNode<Animal>> zoo; 
 
 
@@ -44,7 +44,7 @@ int main()
         cout << "\n4.Delete animal";
         cout << "\n5.Exit "; 
 
-        getline(infile, temp, '#');        
+        getline(test, temp, '#');        
         choice = stoi(temp);  
 
         switch (choice)
@@ -56,7 +56,13 @@ int main()
         case 2:
             cout << "How would you like to sort the animals?\n";
             cout << "If you would like it to be sorted A-Z, select 1. If you would like it sorted Z-A, select 2.";
-
+            getline(test, temp, '%');
+            aOrZ = stoi(temp);
+            while()//finish validaitng input
+            if(aOrZ == 1)
+            zoo.sortAZ(zoo);
+            else
+            zoo.sortZA(zoo);
             break;
 
         case 3:

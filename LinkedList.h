@@ -113,7 +113,7 @@ class LinkedList
      * Purpose: Checks if list is empty 
      *************************************************************/
     template <class T>
-    bool isEmpty()
+    bool LinkedList<T>::isEmpty()
     {
         return first() == NULL; //if true list is empty 
     }
@@ -124,7 +124,7 @@ class LinkedList
      * Purpose: Finds a specified node and returns it 
      *************************************************************/
     template <class T>
-    ListNode<T>* find()
+    ListNode<T>* LinkedList<T>::find()
     {
 
     }
@@ -135,7 +135,7 @@ class LinkedList
      * Purpose: Finds the node before
      *************************************************************/
     template <class T>
-    ListNode<T>* findPrevious()
+    ListNode<T>* LinkedList<T>::findPrevious()
     {
 
     }
@@ -147,7 +147,7 @@ class LinkedList
      * Purpose: Returns first element/node in linked list 
      *************************************************************/
     template <class T>
-    void first() const
+    void LinkedList<T>::first() const
     {
         return head->next;
     }
@@ -158,7 +158,7 @@ class LinkedList
      * Purpose: Returns the end of the list  
      *************************************************************/
     template <class T>
-    void end() const
+    void LinkedList<T>::end() const
     {
         return end -> next;
     }
@@ -170,7 +170,7 @@ class LinkedList
      ************************************************************************/
     template <class T>
 
-    void sortAZ(int *arr, int size)
+    void LinkedList<T>::sortAZ(int *arr, int size)
     {
         int tempForSwap;
         cout << "\nSorting the array with the Bubble Sort algorithm.\n\n";
@@ -206,7 +206,7 @@ class LinkedList
      * Purpose: Sorts the Linked List from Z-A (backwards) using 
      ***********************************************************************/
     template <class T>
-    void sortZA()
+    void LinkedList<T>::sortZA()
     {
         
         //displays the sorted array from A-Z
