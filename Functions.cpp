@@ -38,22 +38,15 @@ void getInitialAnimals(LinkedList<ListNode<Animal>> zoo)
     test.close(); 
 }
 
-void chosePrint()
+
+void printAnimal(string displayA, LinkedList<ListNode<Animal>> zoo)
 {
-
-}
-
-void addNode()
-{
-    
-}
-
-void printAnimal()
-{
-
-}
-
-void printList()
-{
-    
+    if(zoo.isEmpty()) //checks if list is empty
+    {
+        cout << "List is empty!!";
+    }
+    else 
+    {
+       
+    }
 }

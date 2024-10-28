@@ -192,12 +192,7 @@ class LinkedList
 
         //displays the sorted array from A-Z
         cout << "\n ----------------------- Sort array from A-Z";
-
-        for(int i = 0; i < size; i++)
-        {
-            cout << arr[i] << " ";
-        }
-        cout << "-----------------------\n"
+        displayList();
     }
 
     /************************************************************************
@@ -211,12 +206,7 @@ class LinkedList
         
         //displays the sorted array from A-Z
         cout << "\n ----------------------- Sort array from Z-A";
-
-        for(int i = 0; i < size; i++)
-        {
-            cout << arr[i] << " ";
-        }
-        cout << "-----------------------\n"
+        displayList();
     }
 };
 #endif

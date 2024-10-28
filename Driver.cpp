@@ -8,10 +8,11 @@
 #include "LinkedList.h"
 
 void getInitialAnimals(LinkedList<ListNode<Animal>>);
+void printAnimal(string, LinkedList<ListNode<Animal>>);
 
 int main()
 {
-    string temp, name; 
+    string temp, name, displayA; 
     int choice, aOrZ;
     ifstream test; 
     LinkedList<ListNode<Animal>> zoo; 
@@ -44,40 +45,49 @@ int main()
         cout << "\n4.Delete animal";
         cout << "\n5.Exit "; 
 
-        getline(test, temp, '#');        
+        getline(test, temp, '%');        
         choice = stoi(temp);  
 
         switch (choice)
         {
-        case 1:
+            case 1:
+                cout << "What animal would you like to display? ";
+                getline(test, displayA, '%');
+                printAnimal(displayA, zoo);
+                break;
             
-            break;
-        
-        case 2:
-            cout << "How would you like to sort the animals?\n";
-            cout << "If you would like it to be sorted A-Z, select 1. If you would like it sorted Z-A, select 2.";
-            getline(test, temp, '%');
-            aOrZ = stoi(temp);
-            while()//finish validaitng input
-            if(aOrZ == 1)
-            zoo.sortAZ(zoo);
-            else
-            zoo.sortZA(zoo);
-            break;
+            case 2:
+                cout << "How would you like to sort the animals?\n";
+                cout << "If you would like it to be sorted A-Z, select 1. If you would like it sorted Z-A, select 2.";
+                getline(test, temp, '%');
+                aOrZ = stoi(temp);
+                while(aOrZ < 1 || aOrZ > 2)
+                {
+                    cout << "\nIncorrect choice please try again!\n";
+                    getline(test, temp, '%');
+                    aOrZ = stoi(temp);
+                }
+                if(aOrZ == 1)
+                    zoo.sortAZ(zoo);
+                else
+                    zoo.sortZA(zoo);
+                break;
 
-        case 3:
-            break;
+            case 3:
+                break;
 
-        case 4:   
-            //call deconstructors
-            break;     
+            case 4:   
+                //call delete
+                break;     
         }
-
-
-
-
 
     }while(choice !=5);
 
+    cout << "Thank you, " << name << " for your hard work today at " << endl; 
+    cout << "____  _  _  ____    ____  _  _   __   _  _  ____ " << endl;
+    cout << "(_  _)/ )( \\(  __) / ___)/ )( \\ / _\\ ( \\/ )(  _ \\" << endl;
+    cout << ")(  ) __ ( ) _)   \\___ \\\\ /\\ //    \\/ \\/ \\ ) __/" << endl;
+    cout << "(__) \\_)(_/(____)  (____/(_/\\_)\\_/\\_/\\_)(_/(__)  " << endl;
+    cout << "Unfortunately, Shrek (the owner) has said \"Get Out Of MY Swap\"";
     return 0;
 }
