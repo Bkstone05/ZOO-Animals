@@ -5,15 +5,19 @@
  */
 
 #include "Zoo.h"
+#include "LinkedList.h"
+#include "Food.h"
 
 //all setter definitions
 void Animal::setName(string name)
 {
     this->name = name;
 }
-void Animal::setFood(string food)
+void Animal::setFood(string meals, string snacks, int numOfMeals)
 {
-    this->food = food; 
+    food.setMeals(meals);
+    food.setSnacks(snacks);
+    food.setNumOfMeals(numOfMeals);
 }
 void Animal::setAge(int age)
 {
@@ -29,7 +33,7 @@ string Animal::getName() const
 {
     return this->name;
 }
-string Animal::getFood() const
+Food Animal::getFood() const
 {
     return this->food;
 }
@@ -47,8 +51,9 @@ void Animal::printAnimal() const
 {
    
     cout << setw(15) << left << "\nAnimal Name: " << right <<  getName();
-    cout << setw(15) << left << "\nAnimal Food: " << right <<  getFood();    
     cout << setw(15) << left << "\nAnimal Age: " << right <<  getAge();    
-    cout << setw(15) << left << "\nAnimal Name: " << right <<  getWeight();    
+    cout << setw(15) << left << "\nAnimal Name: " << right <<  getWeight(); 
+    food.printFood();   
 }
 
+ 

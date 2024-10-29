@@ -5,6 +5,7 @@
 */
 #include "Zoo.h"
 #include "LinkedList.h"
+#include "Food.h"
 
 void getInitialAnimals(LinkedList<Animal> zoo)
 {

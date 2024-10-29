@@ -14,11 +14,15 @@
 #include <fstream> 
 using namespace std; 
 
+#include "LinkedList.h"
+#include "Food.h"
+
 class Animal
 {
     private:
     //variables
-    string name, food;
+    string name;
+    Food food; 
     int age;
     float weight;
 
@@ -27,28 +31,32 @@ class Animal
     Animal()
     {
         this->name = " ";
-        this->food = " ";
+        this->food.setSnacks(" ");
+        this->food.setMeals(" ");
+        this->food.setNumOfMeals(0);
         this->age = 0;
         this->weight = 0;
     }
    //overloaded constructors
-    Animal(string name, string food, int age, float weight)
+    Animal(string name, string meals, string snacks, int numOfMeals, int age, float weight)
      {
         this->name = name;
-        this->food = food;
+        this->food.setMeals(meals);
+        this->food.setSnacks(snacks);
+        this->food.setNumOfMeals(numOfMeals);
         this->age = age;
         this->weight = weight;
      }
 
      //setters
      void setName(string name);
-     void setFood(string food);
+     void setFood(string meals, string snacks, int numOfMeals);
      void setAge(int age);
      void setWeight(int weight);
 
      //getters
      string getName() const;
-     string getFood() const;
+     Food getFood() const;
      int getAge() const;
      float getWeight() const; 
 
