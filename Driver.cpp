@@ -7,15 +7,16 @@
 #include "Zoo.h"
 #include "LinkedList.h"
 
-void getInitialAnimals(LinkedList<ListNode<Animal>>);
-void printAnimal(string, LinkedList<ListNode<Animal>>);
+void getInitialAnimals(LinkedList<Animal>);
+void printAnimal(string, LinkedList<Animal>);
 
 int main()
 {
     string temp, name, displayA; 
     int choice, aOrZ;
     ifstream test; 
-    LinkedList<ListNode<Animal>> zoo; 
+    LinkedList<Animal> zoo;
+    
 
 
     //intro and start up info
@@ -76,17 +77,18 @@ int main()
                     aOrZ = stoi(temp);
                 }
                 if(aOrZ == 1)
-                    //zoo.sortAZ(zoo);
+                    zoo.returnNode(); //needs parameters
                 else
-                    //zoo.sortZA(zoo);
+                    zoo.sortZA(); //needs parameters
                 break;
 
             case 3:
-                //call add animal function
+                //call add animal (insert node func) function --> read in from file then place into node
+                
                 break;
 
             case 4:   
-                //call delete
+                //call delete node (NOT DECONSTRUCTOR)
                 break;     
         }
 

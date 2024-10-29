@@ -7,6 +7,8 @@ using namespace std;
 
 
 
+
+
 template <typename T>
 class LinkedList
 {
@@ -16,37 +18,36 @@ class LinkedList
     {
         T data; //stores data in the node
         ListNode* next; //pointer to next node
-
-        //constructor
+        
         ListNode(T newNode)
         {
             data = newNode;
             next = NULL;
         }
     };
-
     ListNode* head;
     ListNode* tail; 
 
 
     public: 
     /*********************************
+     CLEAR
      * Constructor
      ********************************/
     template<typename T> 
-    LinkedList<T> :: LinkedList()
+    LinkedList<T>::LinkedList()
     {
         head = NULL;
-        tail = NULL;
-        
+        tail = NULL; 
     }
 
 
     /*********************************
+     CHECK???
      * Destructor
      ********************************/
     template <typename T>
-    LinkedList<T>::~LinkedList()
+    ~LinkedList()
     {
         while(!isEmpty())
         {
@@ -63,23 +64,25 @@ class LinkedList
 
         
     /**************************************************************
+     NEED FIXED
      * Name: insertNode
      * Parameters: none
      * Purpose: Inserts a new npde 
      *************************************************************/
     template <typename T>
-    void LinkedList<T>::insertNode(T& data, ListNode<T>* p)
+    void LinkedList<T>::insertNode()
     {
         ListNode* newNode = new ListNode<T>(data, p->next);
         p->next = newNode; 
     }
     
     /**************************************************************
+     CLEAR
      * Name: deleteNode
      * Parameters: int position -index to get deleted
      * Purpose: Removes/deletes a specified index in list 
      *************************************************************/
-    template <typename T>
+    template <typename t>
     void LinkedList<T>::deleteNode(T& data)
     {
         ListNode* nodePtr;
@@ -117,22 +120,33 @@ class LinkedList
     }
 
     /**************************************************************
+     clear
      * Name: displayList
      * Parameters: None
      * Purpose: Will display the linked list to screen 
      *************************************************************/
-    template <typename T>
+    template <typename t>
     void LinkedList<T>::displayList() const
     {
-        const ListNode* p = first();
-        while(p)
+        ListNode* nodePtr;
+
+        if(head != NULL)
         {
-            cout << p->element << "\n";
-            p = p->next;  
+            nodePtr = head;
+
+            while(nodePtr)
+            {
+                cout << nodePtr->value << endl;
+                nodePtr = nodePtr->next;
+            }
+        }
+        else{
+            cout << "This Node Is Empty";
         }
     }
 
     /**************************************************************
+     * clear
      * Name: isEmpty
      * Parameters: None
      * Purpose: Checks if list is empty 
@@ -140,52 +154,71 @@ class LinkedList
     template <typename t>
     bool LinkedList<T>::isEmpty()
     {
-        return first() == NULL; //if true list is empty 
+        return head == NULL; //if true list is empty 
     }
         
     /**************************************************************
+     * clear
      * Name: find()
      * Parameters: UNSURE
      * Purpose: Finds a specified node and returns it 
      *************************************************************/
-    template <typename T>
-    ListNode<T>* LinkedList<T>::find()
+    template <typename t>
+    ListNode<T>* LinkedList<T>::find(Animal animal)
     {
-        
+        ListNode* nodePtr;
+        int position;
+
+        nodePtr = head; 
+        position = 0;
+
+        while(nodePtr)
+        {
+            if(nodePtr->data.getname() == animal.getname())
+                {
+                    return position; 
+                }
+            position++;
+            nodePtr = nodePtr->next;    
+        }
+        return -1; 
     }
 
-    /**************************************************************
-     * Name: findprevious()
-     * Parameters: UNSURE
-     * Purpose: Finds the node before
-     *************************************************************/
-    template <typename T>
-    ListNode<T>* LinkedList<T>::findPrevious()
-    {
-
-    }
-
 
     /**************************************************************
+     CLEAR
      * Name: first
      * Parameters: None
      * Purpose: Returns first element/node in linked list 
      *************************************************************/
-    template <typename T>
+    template <typename t>
     void LinkedList<T>::first() const
     {
         return head->next;
     }
 
     /**************************************************************
+     * clear
      * Name: end 
      * Parameters: None
      * Purpose: Returns the end of the list  
      *************************************************************/
-    template <typename T>
+    template <typename t>
     void LinkedList<T>::end() const
     {
-        return end -> next;
+        return tail;
+    }
+
+    /**************************************************************
+     NEED FIXED
+     * Name: PrintAnimal
+     * Parameters: None
+     * Purpose: Print out one node
+     *************************************************************/
+    template <typename t>
+    void LinkedList<T>::PrintAnimal(ListNode node) const
+    {
+        node->data.printAnimal(); 
     }
 
     /*************************************************************************
@@ -193,7 +226,7 @@ class LinkedList
      * Parameters: None
      * Purpose: Sorts the Linked List from A-Z (forwards) using Selection sort
      ************************************************************************/
-    template <typename T>
+    template <typename t>
     void LinkedList<T>::sortAZ(returnNode)
     {
         string minIndex, minValue;
@@ -222,7 +255,7 @@ class LinkedList
     }
 
 
-    template <typename T>
+    template <typename t>
     ListNode LinkedList<T>:: returnNode(int index)
     {
         //return node at specific position
@@ -246,8 +279,7 @@ class LinkedList
      * Parameters: UNSUREEEE
 Selection Sort             * Purpose: Sorts the Linked List from Z-A (backwards) using 
      ***********************************************************************/
-    template <typename T>
-
+    template <typename t>
     void LinkedList<T>::sortZA()
     {
 string minIndex, miaxalue;
@@ -278,24 +310,6 @@ string minIndex, miaxalue;
 
     }
 
-    template <typename T>
-    ListNode LinkedList<T>:: returnNode(int index)
-    {
-        //return node at specific position
-        ListNode* traverseList = head;
-        
-        //iterates num time of index
-        //start at postion 0, just like an array
-        for(int temp = 0; temp < index; temp++)
-        {
-            //setting ptr equal to next item in list
-            traverseList = traverseList->next;
-        }
-        
-        
-        return traverseList;
-         
-    }   displayList();
-    }
+    
 };
 #endif

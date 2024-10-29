@@ -6,7 +6,7 @@
 #include "Zoo.h"
 #include "LinkedList.h"
 
-void getInitialAnimals(LinkedList<ListNode<Animal>> zoo)
+void getInitialAnimals(LinkedList<Animal> zoo)
 {
     string name, food, temp; 
     int age; 
@@ -28,10 +28,7 @@ void getInitialAnimals(LinkedList<ListNode<Animal>> zoo)
             weight = stoi(temp);
 
             Animal temp2(name, food, age, weight);
-
-            ListNode<Animal> temp3(temp2); 
-
-            zoo.insertNode(); //IDK WHY NO WORK PLEASE HELP 
+            zoo.insertNode(temp2); //IDK WHY NO WORK PLEASE HELP 
     }
     
     }
@@ -39,8 +36,8 @@ void getInitialAnimals(LinkedList<ListNode<Animal>> zoo)
     test.close(); 
 }
 
-
-void printAnimal(string displayA, LinkedList<ListNode<Animal>> zoo)
+//Needs to be done 
+void printAnimal(string displayA, LinkedList<Animal> zoo)
 {
     string temp;
     ifstream test;
@@ -59,4 +56,4 @@ void printAnimal(string displayA, LinkedList<ListNode<Animal>> zoo)
         getline(test, temp, '%');   
         index = stoi(temp);    
     }
-
+}
