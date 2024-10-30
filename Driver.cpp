@@ -10,13 +10,14 @@
 
 void getInitialAnimals(LinkedList<Animal>);
 void printAnimal(string, LinkedList<Animal>);
+void newAnimal( LinkedList<Animal> zoo);
 
 int main()
 {
-    string temp, name, displayA; 
+    string temp, name, displayA, nameA; 
     int choice, aOrZ;
     ifstream test; 
-    LinkedList<Animal> zoo;
+    LinkedList<ListNode<Animal>> zoo;
     
 
 
@@ -78,18 +79,20 @@ int main()
                     aOrZ = stoi(temp);
                 }
                 if(aOrZ == 1)
-                    zoo.returnNode(); //needs parameters
+                    zoo.sortAZ(); //needs parameters
                 else
                     zoo.sortZA(); //needs parameters
                 break;
 
             case 3:
                 //call add animal (insert node func) function --> read in from file then place into node
-                
+                newAnimal(zoo);
                 break;
 
             case 4:   
-                //call delete node (NOT DECONSTRUCTOR)
+                cout << "Please enter the name of the animal you would like to delete:  ";
+                getline(test, nameA, '%');
+                zoo.deleteNode(nameA);
                 break;     
         }
 

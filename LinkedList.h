@@ -13,18 +13,20 @@ template <typename T>
 class LinkedList
 {
     private:
+
     template <typename T>
     struct ListNode
     {
         T data; //stores data in the node
         ListNode* next; //pointer to next node
         
-        ListNode(T newNode)
+        ListNode<T>::(T newNode)
         {
             data = newNode;
             next = NULL;
         }
     };
+
     ListNode* head;
     ListNode* tail; 
 
@@ -43,7 +45,7 @@ class LinkedList
 
 
     /*********************************
-     CHECK???
+     * I think good
      * Destructor
      ********************************/
     template <typename T>
@@ -64,16 +66,31 @@ class LinkedList
 
         
     /**************************************************************
-     NEED FIXED
+    clear
      * Name: insertNode
      * Parameters: none
      * Purpose: Inserts a new npde 
      *************************************************************/
     template <typename T>
-    void LinkedList<T>::insertNode()
+    void LinkedList<T>::appendNode(Animal node)
     {
-        ListNode* newNode = new ListNode<T>(data, p->next);
-        p->next = newNode; 
+        ListNode* newNode;
+
+        newNode = new ListNode;
+        newNode->data = node;
+        newNode->next = NULL;
+
+        if(!head)
+        {
+            head = newNode;
+            tail = newNode;
+        }
+        else
+        {
+            tail->next = newNode;
+            tail = newNode;
+        }
+        
     }
     
     /**************************************************************
@@ -83,7 +100,7 @@ class LinkedList
      * Purpose: Removes/deletes a specified index in list 
      *************************************************************/
     template <typename t>
-    void LinkedList<T>::deleteNode(T& data)
+    void LinkedList<T>::deleteNode(string name)
     {
         ListNode* nodePtr;
         ListNode* prevNode;
@@ -94,7 +111,7 @@ class LinkedList
             return;
         }
         //Determine if deleting first node
-        if(head->data == num)
+        if(head->data.getName() == name)
         {
             nodePtr = head->next;
             delete head;
@@ -164,7 +181,7 @@ class LinkedList
      * Purpose: Finds a specified node and returns it 
      *************************************************************/
     template <typename t>
-    ListNode<T>* LinkedList<T>::find(Animal animal)
+    ListNode<T>* LinkedList<T>::find(string tempData)
     {
         ListNode* nodePtr;
         int position;
@@ -174,7 +191,7 @@ class LinkedList
 
         while(nodePtr)
         {
-            if(nodePtr->data.getname() == animal.getname())
+            if(nodePtr->data.getname() == tempData)
                 {
                     return position; 
                 }
@@ -210,15 +227,30 @@ class LinkedList
     }
 
     /**************************************************************
-     NEED FIXED
+     clear
      * Name: PrintAnimal
      * Parameters: None
      * Purpose: Print out one node
      *************************************************************/
     template <typename t>
-    void LinkedList<T>::PrintAnimal(ListNode node) const
+    void LinkedList<T>::printAnimal(int index) const
     {
-        node->data.printAnimal(); 
+        int counter = 0;
+        ListNode* nodePtr;
+        nodePtr = head;
+
+        while(nodePtr)
+        {
+            if(counter == index)
+            {
+                nodePtr->data.printAnimal();
+                return;
+            }
+            counter++; 
+        }
+
+        cout << "Could Not Find Animal To Print";
+
     }
 
     /*************************************************************************
@@ -277,7 +309,7 @@ class LinkedList
     /************************************************************************
      * Name: sortZA
      * Parameters: UNSUREEEE
-Selection Sort             * Purpose: Sorts the Linked List from Z-A (backwards) using 
+    * Purpose: Sorts the Linked List from Z-A (backwards) using selection sort
      ***********************************************************************/
     template <typename t>
     void LinkedList<T>::sortZA()

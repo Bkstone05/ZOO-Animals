@@ -9,8 +9,8 @@
 
 void getInitialAnimals(LinkedList<Animal> zoo)
 {
-    string name, food, temp; 
-    int age; 
+    string name, meals, snack, temp; 
+    int age, numMeals; 
     float weight;
     ifstream test; 
 
@@ -22,13 +22,16 @@ void getInitialAnimals(LinkedList<Animal> zoo)
         {
             //gathering information 
             getline(test, name, '%');
-            getline(test, food, '%');
             getline(test, temp, '%');
             age = stoi(temp);
             getline(test, temp, '%');
             weight = stoi(temp);
+            getline(test, meals, '%');
+            getline(test, snack, '%');
+            getline(test, temp, '%');
+            numMeals = stoi(temp);
 
-            Animal temp2(name, food, age, weight);
+            Animal temp2(name, meals, snack, numMeals, age, weight);
             zoo.insertNode(temp2); //IDK WHY NO WORK PLEASE HELP 
     }
     
@@ -42,7 +45,8 @@ void printAnimal(string displayA, LinkedList<Animal> zoo)
 {
     string temp;
     ifstream test;
-    int index; 
+    string name;
+    int index;
 
         if(zoo.isEmpty()) //checks if list is empty
             cout << "List is empty!!";
@@ -54,7 +58,34 @@ void printAnimal(string displayA, LinkedList<Animal> zoo)
         
         cout << "List is empty!!";
         cout << "Please enter in the index of animal you are wanting to see: ";
-        getline(test, temp, '%');   
-        index = stoi(temp);    
+        getline(test, name, '%');
+        index = zoo.find(name);
+        zoo.printAnimal(index); 
     }
+}
+
+void newAnimal( LinkedList<Animal> zoo)
+{
+    string name, meals, snack, temp; 
+    int age, numMeals; 
+    float weight;
+    ifstream test; 
+
+    test.open("Test.txt");
+    
+    if(test.is_open())
+    {
+        getline(test, name, '%');
+        getline(test, temp, '%');
+        age = stoi(temp);
+        getline(test, temp, '%');
+        weight = stoi(temp);
+        getline(test, meals, '%');
+        getline(test, snack, '%');
+        getline(test, temp, '%');
+        numMeals = stoi(temp);
+    }
+    
+    Animal temp2(name, meals, snack, numMeals, age, weight);
+    zoo.insertNode(temp2);
 }
