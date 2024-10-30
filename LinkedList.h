@@ -2,6 +2,7 @@
 #define LinkedList_H
 
 #include "Zoo.h"
+#include "Food.h"
 #include <iostream>
 using namespace std; 
 
@@ -14,30 +15,29 @@ class LinkedList
 {
     private:
 
-    template <typename T>
     struct ListNode
     {
         T data; //stores data in the node
         ListNode* next; //pointer to next node
         
-        ListNode<T>::(T newNode)
+        ListNode()
         {
-            data = newNode;
+            data = 0;
             next = NULL;
         }
     };
 
-    ListNode* head;
-    ListNode* tail; 
+    ListNode<T>* head;
+    ListNode<T>* tail; 
 
 
     public: 
+    LinkedList() {};
     /*********************************
      CLEAR
      * Constructor
      ********************************/
-    template<typename T> 
-    LinkedList<T>::LinkedList()
+    LinkedList()
     {
         head = NULL;
         tail = NULL; 
@@ -48,13 +48,12 @@ class LinkedList
      * I think good
      * Destructor
      ********************************/
-    template <typename T>
     ~LinkedList()
     {
         while(!isEmpty())
         {
-            ListNode* temp = first();
-            ListNode* tempT = end();
+            ListNode<T>* temp = first();
+            ListNode<T>* tempT = end();
             head->next = temp->next;
             tail->next = tempT->next;
             delete tempT;
@@ -71,10 +70,9 @@ class LinkedList
      * Parameters: none
      * Purpose: Inserts a new npde 
      *************************************************************/
-    template <typename T>
-    void LinkedList<T>::appendNode(Animal node)
+    void appendNode(Animal node)
     {
-        ListNode* newNode;
+        ListNode<T>* newNode;
 
         newNode = new ListNode;
         newNode->data = node;
@@ -99,11 +97,10 @@ class LinkedList
      * Parameters: int position -index to get deleted
      * Purpose: Removes/deletes a specified index in list 
      *************************************************************/
-    template <typename t>
-    void LinkedList<T>::deleteNode(string name)
+    void deleteNode(string name)
     {
-        ListNode* nodePtr;
-        ListNode* prevNode;
+        ListNode<T>* nodePtr;
+        ListNode<T>* prevNode;
 
         //If List is Empty STOP
         if(!head)
@@ -142,10 +139,9 @@ class LinkedList
      * Parameters: None
      * Purpose: Will display the linked list to screen 
      *************************************************************/
-    template <typename t>
-    void LinkedList<T>::displayList() const
+    void displayList() const
     {
-        ListNode* nodePtr;
+        ListNode<T>* nodePtr;
 
         if(head != NULL)
         {
@@ -168,8 +164,7 @@ class LinkedList
      * Parameters: None
      * Purpose: Checks if list is empty 
      *************************************************************/
-    template <typename t>
-    bool LinkedList<T>::isEmpty()
+    bool isEmpty()
     {
         return head == NULL; //if true list is empty 
     }
@@ -180,10 +175,9 @@ class LinkedList
      * Parameters: UNSURE
      * Purpose: Finds a specified node and returns it 
      *************************************************************/
-    template <typename t>
-    ListNode<T>* LinkedList<T>::find(string tempData)
+    int find(string tempData)
     {
-        ListNode* nodePtr;
+        ListNode<T>* nodePtr;
         int position;
 
         nodePtr = head; 
@@ -208,8 +202,7 @@ class LinkedList
      * Parameters: None
      * Purpose: Returns first element/node in linked list 
      *************************************************************/
-    template <typename t>
-    void LinkedList<T>::first() const
+    void first() const
     {
         return head->next;
     }
@@ -220,8 +213,7 @@ class LinkedList
      * Parameters: None
      * Purpose: Returns the end of the list  
      *************************************************************/
-    template <typename t>
-    void LinkedList<T>::end() const
+    void end() const
     {
         return tail;
     }
@@ -232,11 +224,10 @@ class LinkedList
      * Parameters: None
      * Purpose: Print out one node
      *************************************************************/
-    template <typename t>
-    void LinkedList<T>::printAnimal(int index) const
+    void printAnimal(int index) const
     {
         int counter = 0;
-        ListNode* nodePtr;
+        ListNode<T>* nodePtr;
         nodePtr = head;
 
         while(nodePtr)
@@ -258,8 +249,7 @@ class LinkedList
      * Parameters: None
      * Purpose: Sorts the Linked List from A-Z (forwards) using Selection sort
      ************************************************************************/
-    template <typename t>
-    void LinkedList<T>::sortAZ(returnNode)
+    void sortAZ(LinkedList zoo)
     {
         string minIndex, minValue;
         string temp; //temp varible for swap
@@ -284,11 +274,11 @@ class LinkedList
             start = temp;
 
         }
+        cout << "----------------------Sorted A-Z";
+        zoo.displayList();
     }
 
-
-    template <typename t>
-    ListNode LinkedList<T>:: returnNode(int index)
+    ListNode returnNode(int index)
     {
         //return node at specific position
         ListNode* traverseList = head;
@@ -311,8 +301,7 @@ class LinkedList
      * Parameters: UNSUREEEE
     * Purpose: Sorts the Linked List from Z-A (backwards) using selection sort
      ***********************************************************************/
-    template <typename t>
-    void LinkedList<T>::sortZA()
+    void sortZA(LinkedList zoo)
     {
 string minIndex, miaxalue;
         string temp; //temp varible for swap
@@ -338,7 +327,7 @@ string minIndex, miaxalue;
         }        
      //displays the sorted array from A-Z
         cout << "\n ----------------------- Sort array from Z-A";
-     
+        zoo.displayList(); 
 
     }
 

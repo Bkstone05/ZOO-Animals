@@ -10,14 +10,14 @@
 
 void getInitialAnimals(LinkedList<Animal>);
 void printAnimal(string, LinkedList<Animal>);
-void newAnimal( LinkedList<Animal> zoo);
+void newAnimal( LinkedList<Animal>);
 
 int main()
 {
     string temp, name, displayA, nameA; 
     int choice, aOrZ;
     ifstream test; 
-    LinkedList<ListNode<Animal>> zoo;
+    LinkedList<Animal> zoo;
     
 
 
@@ -79,9 +79,9 @@ int main()
                     aOrZ = stoi(temp);
                 }
                 if(aOrZ == 1)
-                    zoo.sortAZ(); //needs parameters
+                    zoo.sortAZ(zoo); //needs parameters
                 else
-                    zoo.sortZA(); //needs parameters
+                    zoo.sortZA(zoo); //needs parameters
                 break;
 
             case 3:
