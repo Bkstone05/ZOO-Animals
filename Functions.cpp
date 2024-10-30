@@ -32,7 +32,7 @@ void getInitialAnimals(LinkedList<Animal> zoo)
             numMeals = stoi(temp);
 
             Animal temp2(name, meals, snack, numMeals, age, weight);
-            zoo.insertNode(temp2); //IDK WHY NO WORK PLEASE HELP 
+            zoo.appendNode(temp2); //IDK WHY NO WORK PLEASE HELP 
     }
     
     }
@@ -43,9 +43,7 @@ void getInitialAnimals(LinkedList<Animal> zoo)
 //Needs to be done 
 void printAnimal(string displayA, LinkedList<Animal> zoo)
 {
-    string temp;
     ifstream test;
-    string name;
     int index;
 
         if(zoo.isEmpty()) //checks if list is empty
@@ -56,10 +54,7 @@ void printAnimal(string displayA, LinkedList<Animal> zoo)
     if(test.is_open())
     {
         
-        cout << "List is empty!!";
-        cout << "Please enter in the index of animal you are wanting to see: ";
-        getline(test, name, '%');
-        index = zoo.find(name);
+        index = zoo.find(displayA);
         zoo.printAnimal(index); 
     }
 }
@@ -87,5 +82,5 @@ void newAnimal( LinkedList<Animal> zoo)
     }
     
     Animal temp2(name, meals, snack, numMeals, age, weight);
-    zoo.insertNode(temp2);
+    zoo.appendNode(temp2);
 }

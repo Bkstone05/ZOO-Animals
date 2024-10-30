@@ -8,13 +8,12 @@ using namespace std;
 
 
 
-
-
 template <typename T>
 class LinkedList
 {
     private:
 
+    template <typename t> 
     struct ListNode
     {
         T data; //stores data in the node
@@ -33,15 +32,6 @@ class LinkedList
 
     public: 
     LinkedList() {};
-    /*********************************
-     CLEAR
-     * Constructor
-     ********************************/
-    LinkedList()
-    {
-        head = NULL;
-        tail = NULL; 
-    }
 
 
     /*********************************
@@ -52,8 +42,8 @@ class LinkedList
     {
         while(!isEmpty())
         {
-            ListNode<T>* temp = first();
-            ListNode<T>* tempT = end();
+            ListNode<T>* temp;
+            ListNode<T>* tempT;
             head->next = temp->next;
             tail->next = tempT->next;
             delete tempT;
@@ -66,9 +56,9 @@ class LinkedList
         
     /**************************************************************
     clear
-     * Name: insertNode
+     * Name: appendNode
      * Parameters: none
-     * Purpose: Inserts a new npde 
+     * Purpose: Inserts a new node 
      *************************************************************/
     void appendNode(Animal node)
     {
@@ -124,9 +114,9 @@ class LinkedList
         {
             if(nodePtr == tail)
             {
-                tail = previousNode;
+                tail = prevNode;
             }
-            previousNode->next = nodePtr->next;
+            prevNode->next = nodePtr->next;
             delete nodePtr;
         }
         
@@ -196,27 +186,6 @@ class LinkedList
     }
 
 
-    /**************************************************************
-     CLEAR
-     * Name: first
-     * Parameters: None
-     * Purpose: Returns first element/node in linked list 
-     *************************************************************/
-    void first() const
-    {
-        return head->next;
-    }
-
-    /**************************************************************
-     * clear
-     * Name: end 
-     * Parameters: None
-     * Purpose: Returns the end of the list  
-     *************************************************************/
-    void end() const
-    {
-        return tail;
-    }
 
     /**************************************************************
      clear
@@ -244,6 +213,31 @@ class LinkedList
 
     }
 
+     /*************************************************************************
+     * Name: counter
+     * Parameters: None
+     * Purpose: counts the index for the linked list
+     ************************************************************************/
+    int counter(LinkedList zoo)
+    {
+        int counter = 0;
+        ListNode<T>* nodePtr; 
+
+        nodePtr = head; 
+
+        while(nodePtr != tail)
+        {
+            counter++; 
+            nodePtr = nodePtr->next;
+            if(nodePtr == tail)
+            {
+                counter++;
+            }
+        }
+        return counter;
+    }
+
+
     /*************************************************************************
      * Name: sortAZ
      * Parameters: None
@@ -251,37 +245,44 @@ class LinkedList
      ************************************************************************/
     void sortAZ(LinkedList zoo)
     {
-        string minIndex, minValue;
+        LinkedList minIndex, minValue;
         string temp; //temp varible for swap
+        int index = zoo.counter(zoo); 
         
         //selction sort but instead of array your accessing the returnNode fn instead of the array
-        for(int start = 0; start < (index -1) ; start++)
+        for(int i = 0; i < index ; i++)
         {
             minIndex = head;
-            minValue = returnNode(index);
+            minValue = zoo.returnNode(index);
             
-            for(int i = start + 1; i < size; i++)
+            for(int j = i + 1; j < index; j++)
             {
-                if(returnNode(index) < minValue)
+                if(zoo.returnNode(index) < minValue)
                 {
-                    minValue = returnNode(index);
+                    minValue = zoo.returnNode(index);
                     minIndex = i;
                 }
             }
 
-            temp = returnNode(minIndex);
-            returnNode() = head;
-            start = temp;
+            temp = zoo.returnNode(minIndex);
+            zoo.returnNode() = head;
+            i = temp;
 
         }
+
         cout << "----------------------Sorted A-Z";
         zoo.displayList();
     }
-
+    
+    /*************************************************************************
+     * Name: returnNode
+     * Parameters: index
+     * Purpose: loops through ListNode
+     ************************************************************************/
     ListNode returnNode(int index)
     {
         //return node at specific position
-        ListNode* traverseList = head;
+        ListNode<T> traverseList = head;
         
         //iterates num time of index
         //start at postion 0, just like an array
@@ -290,7 +291,6 @@ class LinkedList
             //setting ptr equal to next item in list
             traverseList = traverseList->next;
         }
-        
         
         return traverseList;
          
@@ -303,27 +303,28 @@ class LinkedList
      ***********************************************************************/
     void sortZA(LinkedList zoo)
     {
-string minIndex, miaxalue;
+        LinkedList minIndex, maxValue;
         string temp; //temp varible for swap
-                
+        int index = zoo.counter(zoo); 
+
         //selction sort but instead of array your accessing the returnNode fn instead of the array
-        for(int start = 0; start < (index -1) ; start++)
+        for(int i = 0; i < index ; i++)
         {
             minIndex = head;
-            maxValue = returnNode(index);
+            maxValue = zoo.returnNode(index);
             
-            for(int i = start + 1; i < size; i++)
+            for(int j = i + 1; j < index; j++)
             {
-                if(returnNode(index) > maxValue)
+                if(zoo.returnNode(index) > maxValue)
                 {
-                    minValue = returnNode(index);
+                    maxValue = zoo.returnNode(index);
                     minIndex = i;
                 }
             }
 
-            temp = returnNode(maxValue);
-            returnNode() = head;
-            start = temp;
+            temp = zoo.returnNode(maxValue);
+            zoo.returnNode() = head;
+            i = temp;
         }        
      //displays the sorted array from A-Z
         cout << "\n ----------------------- Sort array from Z-A";

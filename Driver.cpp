@@ -19,7 +19,7 @@ int main()
     ifstream test; 
     LinkedList<Animal> zoo;
     
-
+    test.open("Test.txt");
 
     //intro and start up info
     cout << "\nPlease enter in your name:  ";
@@ -97,6 +97,8 @@ int main()
         }
 
     }while(choice !=5);
+
+    test.close(); 
 
     cout << "Thank you, " << name << " for your hard work today at " << endl; 
     cout << "____  _  _  ____    ____  _  _   __   _  _  ____ " << endl;
