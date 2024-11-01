@@ -14,8 +14,7 @@ void getInitialAnimals(LinkedList<Animal> zoo)
     float weight;
     ifstream test; 
 
-    test.open("test.txt");
-
+    test.open("Test.txt");
     if(test.is_open())
     {
         for(int i=0; i < 5; i++ )//starting with 5 animals 
@@ -30,14 +29,13 @@ void getInitialAnimals(LinkedList<Animal> zoo)
             getline(test, snack, '%');
             getline(test, temp, '%');
             numMeals = stoi(temp);
-
             Animal temp2(name, meals, snack, numMeals, age, weight);
-            zoo.appendNode(temp2); //IDK WHY NO WORK PLEASE HELP 
-    }
-    
+            zoo.appendNode(temp2, zoo); //IDK WHY NO WORK PLEASE HELP 
+        }
+
     }
 
-    test.close(); 
+
 }
 
 //Needs to be done 
@@ -82,5 +80,5 @@ void newAnimal( LinkedList<Animal> zoo)
     }
     
     Animal temp2(name, meals, snack, numMeals, age, weight);
-    zoo.appendNode(temp2);
+    zoo.appendNode(temp2, zoo);
 }

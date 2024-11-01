@@ -21,13 +21,19 @@ int main()
     
     test.open("Test.txt");
 
+    if(!test.is_open())
+    {
+        cout << "NOPE";
+    }
+
     //intro and start up info
     cout << "\nPlease enter in your name:  ";
     getline(cin, name);
     cout << "\nThank you " << name;
 
     cout << "\nPortal is loading.......";
-    getInitialAnimals(zoo);    
+    getInitialAnimals(zoo);   
+ 
     cout << "\n\nWelcome " << name << " to \n";
     cout << "____  _  _  ____    ____  _  _   __   _  _  ____ " << endl;
     cout << "(_  _)/ )( \\(  __) / ___)/ )( \\ / _\\ ( \\/ )(  _ \\" << endl;
@@ -79,9 +85,9 @@ int main()
                     aOrZ = stoi(temp);
                 }
                 if(aOrZ == 1)
-                    zoo.sortAZ(zoo); //needs parameters
+                    zoo.SortAZ(zoo); 
                 else
-                    zoo.sortZA(zoo); //needs parameters
+                    zoo.SortZA(zoo); 
                 break;
 
             case 3:

@@ -21,7 +21,7 @@ class LinkedList
         
         ListNode()
         {
-            data = 0;
+            data;
             next = NULL;
         }
     };
@@ -60,25 +60,77 @@ class LinkedList
      * Parameters: none
      * Purpose: Inserts a new node 
      *************************************************************/
-    void appendNode(Animal node)
+    void appendNode(T node, LinkedList zoo)
     {
+        
         ListNode<T>* newNode;
 
-        newNode = new ListNode;
+        newNode = new ListNode<T>;
         newNode->data = node;
         newNode->next = NULL;
 
+        cout << "The Program makes it here need help getting it to go further!";
         if(!head)
         {
+            head = newNode;
+            tail = newNode;
+            cout << "here";
+        }
+        else   
+        {
+            tail->next = newNode;
+            tail = newNode; 
+            cout << "uhh";
+        }
+    }
+
+    void insertNode(int pos, ListNode<T> node)
+    {
+        ListNode<T> *nodePtr;
+        ListNode<T> *newNode;
+
+        newNode = new ListNode<T>;
+        newNode->data = node.data;
+
+        if(!head)
+        {
+            if(pos != 0)
+            {
+                cout << "\n\nUnable to insert a node at positon " << pos;
+            
+            }
             head = newNode;
             tail = newNode;
         }
         else
         {
-            tail->next = newNode;
-            tail = newNode;
+            nodePtr = head;
+            int nodeCount = 0;
+            if(pos == 0)
+            {
+                newNode->next = head;
+                head = newNode;
+            }
+            else
+            {
+                while(nodePtr != tail && nodeCount < pos)
+                {
+                    nodeCount++;
+                    if(nodeCount == pos)
+                    {
+                        break;
+                    }
+                    nodePtr = nodePtr->next;
+                }
+
+                if(nodePtr->next == NULL)
+                {
+                    tail = newNode;
+                }
+                newNode->next = nodePtr->next;
+                nodePtr->next = newNode; 
+            }
         }
-        
     }
     
     /**************************************************************
@@ -175,7 +227,7 @@ class LinkedList
 
         while(nodePtr)
         {
-            if(nodePtr->data.getname() == tempData)
+            if(nodePtr->data.getName() == tempData)
                 {
                     return position; 
                 }
@@ -236,102 +288,76 @@ class LinkedList
         }
         return counter;
     }
-
-
-    /*************************************************************************
-     * Name: sortAZ
-     * Parameters: None
-     * Purpose: Sorts the Linked List from A-Z (forwards) using Selection sort
-     ************************************************************************/
-    void sortAZ(LinkedList zoo)
+    string getNodeName(int position)
     {
-        LinkedList minIndex, minValue;
-        string temp; //temp varible for swap
-        int index = zoo.counter(zoo); 
-        
-        //selction sort but instead of array your accessing the returnNode fn instead of the array
-        for(int i = 0; i < index ; i++)
+        ListNode<T>* nodePtr;
+        int curPos = 0;
+        if(!head)
         {
-            minIndex = head;
-            minValue = zoo.returnNode(index);
-            
-            for(int j = i + 1; j < index; j++)
-            {
-                if(zoo.returnNode(index) < minValue)
-                {
-                    minValue = zoo.returnNode(index);
-                    minIndex = i;
-                }
-            }
-
-            temp = zoo.returnNode(minIndex);
-            zoo.returnNode() = head;
-            i = temp;
-
+            return " ";
         }
-
-        cout << "----------------------Sorted A-Z";
-        zoo.displayList();
-    }
-    
-    /*************************************************************************
-     * Name: returnNode
-     * Parameters: index
-     * Purpose: loops through ListNode
-     ************************************************************************/
-    ListNode returnNode(int index)
-    {
-        //return node at specific position
-        ListNode<T> traverseList = head;
-        
-        //iterates num time of index
-        //start at postion 0, just like an array
-        for(int temp = 0; temp < index; temp++)
+        else
         {
-            //setting ptr equal to next item in list
-            traverseList = traverseList->next;
-        }
-        
-        return traverseList;
-         
-    }
-
-    /************************************************************************
-     * Name: sortZA
-     * Parameters: UNSUREEEE
-    * Purpose: Sorts the Linked List from Z-A (backwards) using selection sort
-     ***********************************************************************/
-    void sortZA(LinkedList zoo)
-    {
-        LinkedList minIndex, maxValue;
-        string temp; //temp varible for swap
-        int index = zoo.counter(zoo); 
-
-        //selction sort but instead of array your accessing the returnNode fn instead of the array
-        for(int i = 0; i < index ; i++)
-        {
-            minIndex = head;
-            maxValue = zoo.returnNode(index);
-            
-            for(int j = i + 1; j < index; j++)
+            if(position == 0)
             {
-                if(zoo.returnNode(index) > maxValue)
-                {
-                    maxValue = zoo.returnNode(index);
-                    minIndex = i;
-                }
+                return head->data.getName();
             }
+            nodePtr = head;
+            while(position >= curPos)
+            {
+                if(position ==0)
+                {
+                    return nodePtr->data.getName();
+                }
+                curPos++;
+                nodePtr = nodePtr->next;
+            }
+            
+        }
+        return " ";
+        
+    }
+    void SortAZ(LinkedList zoo)
+    {
+        ListNode<T> tempNode; 
+        string temp; 
+        int j;
+        char key;
 
-            temp = zoo.returnNode(maxValue);
-            zoo.returnNode() = head;
-            i = temp;
-        }        
-     //displays the sorted array from A-Z
-        cout << "\n ----------------------- Sort array from Z-A";
-        zoo.displayList(); 
-
+        for(int i = 1; i < zoo.counter(zoo); i++)
+        {
+            temp = zoo.getNodeName(i);
+            key = temp.at(0);
+            j = i-1;
+            while(j >=0 && temp.at(0) > key)
+            {
+                j = j-1;
+            }
+            zoo.deleteNode(tempNode.data.getName());
+            zoo.insertNode(j+1, tempNode);
+        }
     }
 
+    void SortZA(LinkedList zoo)
+    {
+        ListNode<T> tempNode; 
+        string temp; 
+        int j;
+        char key;
+
+        for(int i = 1; i < zoo.counter(zoo); i++)
+        {
+            temp = zoo.getNodeName(i);
+            key = temp.at(0);
+            j = i-1;
+            while(j >=0 && temp.at(0) < key)
+            {
+                j = j-1;
+            }
+            zoo.deleteNode(tempNode.data.getName());
+            zoo.insertNode(j+1, tempNode);
+        }
+    }
     
 };
 #endif
