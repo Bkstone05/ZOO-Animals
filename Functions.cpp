@@ -30,7 +30,8 @@ void getInitialAnimals(LinkedList<Animal> zoo)
             getline(test, temp, '%');
             numMeals = stoi(temp);
             Animal temp2(name, meals, snack, numMeals, age, weight);
-            zoo.appendNode(temp2, zoo); //IDK WHY NO WORK PLEASE HELP 
+            zoo.appendNode(temp2, zoo);
+            zoo.displayList();
         }
 
     }

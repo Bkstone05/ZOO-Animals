@@ -67,7 +67,7 @@ class Animal
    //deconstructor *ded*
      ~Animal()
      {
-         cout << "This animal has passed away" << endl;
+         cout << "\nThis animal has passed away" << endl;
      }
 };
 

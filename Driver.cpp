@@ -33,7 +33,6 @@ int main()
 
     cout << "\nPortal is loading.......";
     getInitialAnimals(zoo);   
- 
     cout << "\n\nWelcome " << name << " to \n";
     cout << "____  _  _  ____    ____  _  _   __   _  _  ____ " << endl;
     cout << "(_  _)/ )( \\(  __) / ___)/ )( \\ / _\\ ( \\/ )(  _ \\" << endl;
@@ -42,8 +41,8 @@ int main()
     cout << "\n\nCurrent Animals in the zoo!";
     
     //call display list function here and pre sort (a-z)
+    zoo.displayList();
 
-    
    //menu made through using a switch case
     do{
 

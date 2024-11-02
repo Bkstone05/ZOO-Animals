@@ -26,8 +26,8 @@ class LinkedList
         }
     };
 
-    ListNode<T>* head;
-    ListNode<T>* tail; 
+    ListNode<T>* head = NULL;
+    ListNode<T>* tail= NULL; 
 
 
     public: 
@@ -54,7 +54,6 @@ class LinkedList
 
         
     /**************************************************************
-     * HELPPPPP
      * Name: appendNode
      * Parameters: none
      * Purpose: Inserts a new node 
@@ -67,20 +66,16 @@ class LinkedList
         newNode = new ListNode<T>; //took out <T>
         newNode->data = node;
         newNode->next = NULL;
-
-        cout << "The Program makes it here need help getting it to go further!";
         
-        if(!head)
+        if(head == NULL)
         {
             head = newNode;
             tail = newNode;
-            cout << "here";
         }
         else   
         {
             tail->next = newNode;
             tail = newNode; 
-            cout << "uhh";
         }
     }
 
@@ -193,7 +188,7 @@ class LinkedList
 
             while(nodePtr)
             {
-                cout << nodePtr->value << endl;
+                nodePtr->data.printAnimal();
                 nodePtr = nodePtr->next;
             }
         }
