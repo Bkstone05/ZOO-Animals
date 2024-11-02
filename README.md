@@ -1,5 +1,5 @@
 # Zoo Animals
-************The Animal Zoo************
+************The Swamp************
 A program to access the information about the zoo, including the animals, their name, age, height and food they eat. You will be able to add and remove animals in the zoo while also organizing the data in the zoo. 
 
 ---------This program should include---------
@@ -10,27 +10,19 @@ Driver:
 A class for:
 1) Zoo animals
     -contains animal name, age, weight and food
+2) Food
+    -contains the animals meals, snacks, and number of meals in a day
 
-2) Linked list 
+4) Linked list 
     -private data:
+        -Structure ListNode to use
         -head (and tail) list node pointers
-        -size (optional)
     -public functions:
-        -add to the list
+        -add to the list (append and insert)
         -get from the list
         -remove from the list
-    -public "friend" functions:
-        -some sorting functions
-        -stream operator functions 
+        -Sort A-Z and Z-A
 
-3) Smart Pointer (idk prevents the memory from leaking *insert griddy*)
-    -private data: 
-        -pointer to the data of the template type
-    -public functions:
-        -assignment of the pointer 
-        -use the pointer? 
-        -comparison operator 
-        -destructor 
 
 Test Case:
 -includes a test of every possible path of the program, and samples user input
