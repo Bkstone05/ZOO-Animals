@@ -35,7 +35,6 @@ class LinkedList
 
 
     /*********************************
-     * I think good
      * Destructor
      ********************************/
     ~LinkedList()
@@ -55,7 +54,7 @@ class LinkedList
 
         
     /**************************************************************
-    clear
+     * HELPPPPP
      * Name: appendNode
      * Parameters: none
      * Purpose: Inserts a new node 
@@ -63,13 +62,14 @@ class LinkedList
     void appendNode(T node, LinkedList zoo)
     {
         
-        ListNode<T>* newNode;
+        ListNode<T>* newNode; //took out <T>
 
-        newNode = new ListNode<T>;
+        newNode = new ListNode<T>; //took out <T>
         newNode->data = node;
         newNode->next = NULL;
 
         cout << "The Program makes it here need help getting it to go further!";
+        
         if(!head)
         {
             head = newNode;
@@ -84,6 +84,12 @@ class LinkedList
         }
     }
 
+
+  /*************************************************************************
+     * Name: insertNode
+     * Parameters: int position, ListNode node value
+     * Purpose: adds a node 
+     ************************************************************************/
     void insertNode(int pos, ListNode<T> node)
     {
         ListNode<T> *nodePtr;
@@ -92,7 +98,7 @@ class LinkedList
         newNode = new ListNode<T>;
         newNode->data = node.data;
 
-        if(!head)
+        if(!head) //runs if not at the head, will not insert the node at the position its in
         {
             if(pos != 0)
             {
@@ -106,7 +112,7 @@ class LinkedList
         {
             nodePtr = head;
             int nodeCount = 0;
-            if(pos == 0)
+            if(pos == 0) //runs when the position is 0
             {
                 newNode->next = head;
                 head = newNode;
@@ -115,7 +121,7 @@ class LinkedList
             {
                 while(nodePtr != tail && nodeCount < pos)
                 {
-                    nodeCount++;
+                    nodeCount++; //increments to get position right
                     if(nodeCount == pos)
                     {
                         break;
@@ -134,7 +140,6 @@ class LinkedList
     }
     
     /**************************************************************
-     CLEAR
      * Name: deleteNode
      * Parameters: int position -index to get deleted
      * Purpose: Removes/deletes a specified index in list 
@@ -171,12 +176,9 @@ class LinkedList
             prevNode->next = nodePtr->next;
             delete nodePtr;
         }
-        
-
     }
 
     /**************************************************************
-     clear
      * Name: displayList
      * Parameters: None
      * Purpose: Will display the linked list to screen 
@@ -185,7 +187,7 @@ class LinkedList
     {
         ListNode<T>* nodePtr;
 
-        if(head != NULL)
+        if(head != NULL) //
         {
             nodePtr = head;
 
@@ -195,13 +197,13 @@ class LinkedList
                 nodePtr = nodePtr->next;
             }
         }
-        else{
+        else
+        {
             cout << "This Node Is Empty";
         }
     }
 
     /**************************************************************
-     * clear
      * Name: isEmpty
      * Parameters: None
      * Purpose: Checks if list is empty 
@@ -212,7 +214,6 @@ class LinkedList
     }
         
     /**************************************************************
-     * clear
      * Name: find()
      * Parameters: UNSURE
      * Purpose: Finds a specified node and returns it 
@@ -227,7 +228,7 @@ class LinkedList
 
         while(nodePtr)
         {
-            if(nodePtr->data.getName() == tempData)
+            if(nodePtr->data.getName() == tempData) //cycles to find the node the user is looking for
                 {
                     return position; 
                 }
@@ -237,10 +238,7 @@ class LinkedList
         return -1; 
     }
 
-
-
     /**************************************************************
-     clear
      * Name: PrintAnimal
      * Parameters: None
      * Purpose: Print out one node
@@ -288,6 +286,12 @@ class LinkedList
         }
         return counter;
     }
+
+      /*************************************************************************
+     * Name: getNodeName 
+     * Parameters: int position
+     * Purpose: gets the node name from ListNode
+     ************************************************************************/
     string getNodeName(int position)
     {
         ListNode<T>* nodePtr;
@@ -317,6 +321,12 @@ class LinkedList
         return " ";
         
     }
+
+      /*************************************************************************
+     * Name: SortAZ
+     * Parameters: LinkedList zoo
+     * Purpose: sorts the linked list A to Z using Selection Sort
+     ************************************************************************/
     void SortAZ(LinkedList zoo)
     {
         ListNode<T> tempNode; 
@@ -324,11 +334,12 @@ class LinkedList
         int j;
         char key;
 
-        for(int i = 1; i < zoo.counter(zoo); i++)
+        for(int i = 1; i < zoo.counter(zoo); i++) 
         {
             temp = zoo.getNodeName(i);
             key = temp.at(0);
             j = i-1;
+
             while(j >=0 && temp.at(0) > key)
             {
                 j = j-1;
@@ -338,6 +349,11 @@ class LinkedList
         }
     }
 
+  /*************************************************************************
+     * Name: SortZA
+     * Parameters: LinkedList zoo
+     * Purpose: sorts the linked list Z to A using Selection Sort
+     ************************************************************************/
     void SortZA(LinkedList zoo)
     {
         ListNode<T> tempNode; 
